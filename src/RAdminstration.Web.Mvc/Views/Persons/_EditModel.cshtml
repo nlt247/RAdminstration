@@ -1,0 +1,30 @@
+﻿@using RAdminstration.PhoneBooks.Dto;
+@using RAdminstration.Web.Models.Common.Modals
+@model PersonListDto
+@{ Layout = null; }
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EditPerson")))
+<form name="RoleEditForm" role="form" class="form-horizontal">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    @*<input type="hidden" name="IsStatic" value="@(Model.Role.IsStatic.ToString())" />*@
+    <div class="modal-body">
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="personname">@L("Name")</label>
+            <div class="col-md-9">
+                <input id="personname" class="form-control" type="text" name="Name" value="@Model.Name" required maxlength="32" minlength="2">
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="personemail">@L("EmailAddress")</label>
+            <div class="col-md-9">
+                <input id="personemail" class="form-control" type="text" name="EmailAddress" value="@Model.EmailAddress" required maxlength="32" minlength="2">
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="personaddress">@L("Address")</label>
+            <div class="col-md-9">
+                <input id="personaddress" class="form-control" type="text" name="Address" value="@Model.Address" required maxlength="32" minlength="2">
+            </div>
+        </div>
+    </div>
+    @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+</form>

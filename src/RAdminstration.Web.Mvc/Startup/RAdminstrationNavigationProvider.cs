@@ -39,6 +39,15 @@ namespace RAdminstration.Web.Startup
                     )
                 ).AddItem(
                     new MenuItemDefinition(
+                            PageNames.Persons,
+                            //new FixedLocalizableString("联系人"),
+                            L("Persons"),
+                            url: "Persons",//? skipCount = 0 & maxResultCount = 10
+                            icon: "fas fa-users"
+                        )
+                )
+                .AddItem(
+                    new MenuItemDefinition(
                         PageNames.Roles,
                         L("Roles"),
                         url: "Roles",

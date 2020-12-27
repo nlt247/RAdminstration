@@ -3,6 +3,8 @@ using Abp.Zero.EntityFrameworkCore;
 using RAdminstration.Authorization.Roles;
 using RAdminstration.Authorization.Users;
 using RAdminstration.MultiTenancy;
+using RAdminstration.PhoneBooks.Persons;
+using RAdminstration.PhoneBooks.PhoneNumbers;
 
 namespace RAdminstration.EntityFrameworkCore
 {
@@ -13,6 +15,15 @@ namespace RAdminstration.EntityFrameworkCore
         public RAdminstrationDbContext(DbContextOptions<RAdminstrationDbContext> options)
             : base(options)
         {
+        }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<PhoneNumber> PhoneNumbers { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Person>().ToTable("Person","PB");
+            modelBuilder.Entity<PhoneNumber>().ToTable("PhoneNumber", "PB");
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

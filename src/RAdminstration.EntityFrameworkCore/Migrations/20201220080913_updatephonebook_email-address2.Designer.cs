@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RAdminstration.EntityFrameworkCore;
 
 namespace RAdminstration.Migrations
 {
     [DbContext(typeof(RAdminstrationDbContext))]
-    partial class RAdminstrationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201220080913_updatephonebook_email-address2")]
+    partial class updatephonebook_emailaddress2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
